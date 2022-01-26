@@ -21,6 +21,13 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 2em 3em;
+  color: white;
+}
+.site-logo {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 900;
+  font-size: 2rem;
 }
 .nav__list {
   list-style: none;
@@ -36,4 +43,25 @@ header {
   position: relative;
   text-transform: uppercase;
   padding: calc(var(--spacing) / 2) var(--spacing);
+}
+.home-intro {
+  padding: 25vh 0;
+  background: #123 url(//unsplash.it/900);
+  background-size: cover;
+  background-blend-mode: multiply;
+  color: white;
+}
+.footer-nav {
+  display: flex;
+  justify-content: center;
+}
+.card__list-item {
+  width: 200px;
+  height: 400px;
+  outline: 3px solid black;
+}
+.card__back {
+  transform: rotateY(180deg);
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
