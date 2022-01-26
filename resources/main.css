@@ -1,6 +1,39 @@
+html,
 body {
-  background-color: red;
+  height: 100%;
 }
-div {
-  height: 100vh;
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+footer {
+  border: solid hotpink 3px;
+  padding: 8px;
+  margin-top: auto;
+}
+header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2em 3em;
+}
+.nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+.nav__link {
+  --spacing: 1em;
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  position: relative;
+  text-transform: uppercase;
+  padding: calc(var(--spacing) / 2) var(--spacing);
 }
