@@ -3,25 +3,37 @@ const cardArea = document.getElementById('allCards');
 const cardFronts = document.getElementsByClassName('card__front');
 const cardBacks = document.getElementsByClassName('card__back');
 const testBtn = document.getElementById('btn');
+const taxaSelect = document.getElementById('taxa-select');
+const areaSelect = document.getElementById('area-select');
+const numberToStudy = document.getElementById('number-select');
+let species = [];
+let taxa = '';
+let area = '';
+let numberOfCards = '';
+
+taxaSelect.addEventListener('change', () => {
+  return (taxa = `&iconic_taxa=${taxaSelect.value}`);
+});
+areaSelect.addEventListener('change', () => {
+  return (area = `&place_id=${areaSelect.value}`);
+});
+numberToStudy.addEventListener('change', () => {
+  numberOfCards = numberToStudy.value;
+});
+const urlBase =
+  'https://api.inaturalist.org/v1/observations?captive=false&introduced=false&native=true&photos=true&license=cc-by-nc&photo_license=cc-by-nc&per_page=60&identifications=most_agree&quality_grade=research';
+const urlEnd = '&order=desc&order_by=created_at';
 testBtn.addEventListener('click', () => {
   cardArea.innerHTML = '';
-  getSpecies();
+  getSpecies(urlBase + area + taxa + urlEnd);
 });
-
-let species = [];
-
-console.log(cardFronts);
 // const url =
 //   'https://api.inaturalist.org/v1/observations?captive=false&native=true&photos=true&license=cc-by&place_id=34&iconic_taxa=Mammalia&per_page=40&order=desc&order_by=created_at';
-const url =
-  'https://api.inaturalist.org/v1/observations?captive=false&introduced=false&native=true&photos=true&license=cc-by-nc&photo_license=cc-by-nc&place_id=34&iconic_taxa=Mammalia&&per_page=60&identifications=most_agree&quality_grade=research&order=desc&order_by=created_at';
+// const url =
+//   'https://api.inaturalist.org/v1/observations?captive=false&introduced=false&native=true&photos=true&license=cc-by-nc&photo_license=cc-by-nc&place_id=34&per_page=60&identifications=most_agree&quality_grade=research&iconic_taxa=Mammalia&order=desc&order_by=created_at';
 
 const createCard = function () {
-  let randomNumber = Math.floor(Math.random() * (10 - 4 + 1) + 4);
-  console.log(randomNumber);
-  // let card = document.createElement('div');
-  // card.classList.add('card__list-item');
-  // card.textContent = 'This is a test';
+  let randomNumber = Math.floor(Math.random() * (60 - 0 + 0) + 0);
   let cardListItem = document.createElement('article');
   let card = document.createElement('div');
   let cardFront = document.createElement('div');
@@ -51,13 +63,16 @@ const createCard = function () {
   // }
 };
 const repeat = (func, numb) => {
-  for (let i = 1; i < numb; i++) {
+  for (let i = 1; i <= numb; i++) {
     func();
   }
 };
-const getSpecies = async () => {
+const getSpecies = async (url) => {
+  // const response = await fetch(url);
   const response = await fetch(url);
+  console.log(urlBase + area + taxa + urlEnd);
   if (response.ok) {
+    species = [];
     const jsonResponse = await response.json();
     for (let i = 0; i < jsonResponse.results.length; i++) {
       // console.log(jsonResponse.results);
@@ -70,9 +85,8 @@ const getSpecies = async () => {
   } else {
     console.log(err);
   }
-  let randomNumber = Math.floor(Math.random() * (10 - 4 + 1) + 4);
-  console.log(randomNumber);
-  repeat(createCard, randomNumber);
+
+  repeat(createCard, numberOfCards);
   // console.log(species);
   // for (const card of cardFronts) {
   //   let imgEl = document.createElement('img');
