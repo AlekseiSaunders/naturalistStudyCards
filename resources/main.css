@@ -45,12 +45,20 @@ header {
   padding: calc(var(--spacing) / 2) var(--spacing);
 }
 .home-intro {
-  padding: 25vh 0;
+  padding: 13vh 0;
   background: #123 url(//unsplash.it/900);
   background-size: cover;
   background-blend-mode: multiply;
   color: white;
   text-align: center;
+}
+.selects {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+.select__list {
+  margin: 0 20px;
 }
 .btn-like {
   display: inline-block;
@@ -66,11 +74,12 @@ header {
 }
 .card__list {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  column-gap: 10px;
 }
 .card__list-item {
   width: 400px;
-  height: 400px;
+  height: 600px;
   margin: 2rem 2rem;
   perspective: 1000px;
 }
