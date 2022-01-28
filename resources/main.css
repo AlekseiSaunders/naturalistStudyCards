@@ -69,7 +69,7 @@ header {
   grid-template-columns: 1fr 1fr 1fr;
 }
 .card__list-item {
-  width: 200px;
+  width: 400px;
   height: 400px;
   margin: 2rem 2rem;
   perspective: 1000px;
@@ -101,4 +101,8 @@ header {
 .card {
   transition: transform 1s;
   transform-style: preserve-3d;
+}
+img {
+  max-width: 100%;
+  width: 350px;
 }
