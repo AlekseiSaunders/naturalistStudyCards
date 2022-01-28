@@ -25,11 +25,50 @@
 	</header>
 	<main>
 		<section class="home-intro">
-			<a href="#" class="btn-like" id="btn">
-				<h2>
-					Title
-				</h2>
-			</a>
+			<div class="select__list">
+				<label for="taxa-select">Choose a Taxon to study:</label>
+				<select name="taxon" id="taxa-select">
+					<option value="">--Please select a taxon--</option>
+					<option value="Mammalia">Mammals</option>
+					<option value="Aves">Birds</option>
+					<option value="Amphibia">Amphibians</option>
+					<option value="Reptilia">Reptiles</option>
+					<option value="Actinopterygii">Ray-finned Fishes</option>
+					<option value="Insecta">Insects</option>
+					<option value="Arachnida">Arachnids</option>
+					<option value="Plantae">Plants</option>
+				</select>
+			</div>
+			<div>
+				<a href="#" class="btn-like" id="btn">
+					<h2>
+						Generate Flashcards
+					</h2>
+				</a>
+			</div>
+			<div class="select__list">
+				<label for="area-select">Choose an area from which to study:</label>
+				<select name="area" id="area-select">
+					<option value="">--Please select an area--</option>
+					<option value="34">Colorado</option>
+					<option value="32">Utah</option>
+					<option value="9">New Mexico</option>
+					<option value="18">Texas</option>
+					<option value="20">Indiana</option>
+					<option value="7783">Madagascar</option>
+				</select>
+			</div>
+			<div class="select__list">
+				<label for="number-select">Choose the number of cards to study:</label>
+				<select name="number" id="number-select">
+					<option value="">--Please select a number--</option>
+					<option value="5">5</option>
+					<option value="10">10</option>
+					<option value="15">15</option>
+					<option value="20">20</option>
+
+				</select>
+			</div>
 		</section>
 		<section class="card__list" id='allCards'>
 			<!-- <article class="card__list-item">
