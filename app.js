@@ -22,7 +22,7 @@ numberToStudy.addEventListener('change', () => {
   numberOfCards = numberToStudy.value;
 });
 const urlBase =
-  'https://api.inaturalist.org/v1/observations?captive=false&introduced=false&native=true&photos=true&license=cc-by-nc&photo_license=cc-by-nc&per_page=600&identifications=most_agree&quality_grade=research';
+  'https://api.inaturalist.org/v1/observations?captive=false&introduced=false&native=true&photos=true&license=cc-by-nc&photo_license=cc-by-nc&per_page=600&identifications=most_agree';
 const urlEnd = '&order=desc&order_by=created_at';
 testBtn.addEventListener('click', () => {
   cardArea.innerHTML = '';
