@@ -1,14 +1,4 @@
-html,
-body {
-  height: 100%;
-}
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-}
 footer {
-  border: solid hotpink 3px;
   padding: 8px;
   margin-top: auto;
 }
@@ -18,10 +8,24 @@ header {
   right: 0;
   left: 0;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  padding: 2em 3em;
+  text-align: center;
+  padding: 0.5em 0.75em;
   color: white;
+  transition: top 0.3s;
+}
+img {
+  max-width: 100%;
+  width: fit-content;
+}
+.site-logo {
+  border-bottom: 1px solid #555;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
 .site-logo {
   text-decoration: none;
@@ -46,15 +50,18 @@ header {
 }
 .home-intro {
   padding: 13vh 0;
-  background: #123 url(//unsplash.it/900);
+  background: #777 url(./colorado-scene-jamie-gilluly.jpg);
   background-size: cover;
+  background-position: center;
   background-blend-mode: multiply;
   color: white;
   text-align: center;
 }
 .selects {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  /* justify-content: center; */
+  margin-top: 5rem;
   margin-bottom: 40px;
 }
 .select__list {
@@ -110,8 +117,4 @@ header {
 .card {
   transition: transform 1s;
   transform-style: preserve-3d;
-}
-img {
-  max-width: 100%;
-  width: fit-content;
 }
