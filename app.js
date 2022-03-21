@@ -11,6 +11,7 @@ let taxa = '';
 let area = '';
 let numberOfCards = '';
 let maxCards = 0;
+let prevScrollPosition = window.scrollY;
 
 taxaSelect.addEventListener('change', () => {
   return (taxa = `&iconic_taxa=${taxaSelect.value}`);
@@ -32,6 +33,19 @@ testBtn.addEventListener('click', () => {
 //   'https://api.inaturalist.org/v1/observations?captive=false&native=true&photos=true&license=cc-by&place_id=34&iconic_taxa=Mammalia&per_page=40&order=desc&order_by=created_at';
 // const url =
 //   'https://api.inaturalist.org/v1/observations?captive=false&introduced=false&native=true&photos=true&license=cc-by-nc&photo_license=cc-by-nc&place_id=34&per_page=60&identifications=most_agree&quality_grade=research&iconic_taxa=Mammalia&order=desc&order_by=created_at';
+
+window.onscroll = function () {
+  let currentScrollPosition = window.scrollY;
+  if (
+    prevScrollPosition > currentScrollPosition &&
+    currentScrollPosition < 120
+  ) {
+    document.getElementById('siteNav').style.top = '0';
+  } else {
+    document.getElementById('siteNav').style.top = '-145px';
+  }
+  prevScrollPosition = currentScrollPosition;
+};
 
 const createCard = function () {
   let numbers = [];
@@ -83,6 +97,7 @@ const getSpecies = async (url) => {
   const response = await fetch(url);
   console.log(urlBase + area + taxa + urlEnd);
   if (response.ok) {
+    // should this be try?
     species = [];
     const jsonResponse = await response.json();
     let photoList = [];
@@ -103,6 +118,7 @@ const getSpecies = async (url) => {
       }
     }
   } else {
+    // and if the above is try, should this by catch?
     console.log(err);
   }
   maxCards = species.length;
@@ -111,6 +127,7 @@ const getSpecies = async (url) => {
   } else {
     createCard();
   }
+
   // console.log(species);
   // for (const card of cardFronts) {
   //   let imgEl = document.createElement('img');
