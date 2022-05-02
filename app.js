@@ -63,23 +63,26 @@ const createCard = function () {
     let cardFront = document.createElement('div');
     let cardBack = document.createElement('div');
     let img = document.createElement('img');
-    let attr = document.createElement('p');
+    let attribute = document.createElement('p');
     let imgBack = document.createElement('img');
     let speciesName = document.createElement('p');
+    let scientificName = document.createElement('p');
     cardListItem.classList.add('card__list-item');
     card.classList.add('card');
     cardFront.classList.add('card__front');
     cardBack.classList.add('card__back');
     img.src = species[num].photo;
-    attr.textContent = species[num].attribution;
+    attribute.textContent = species[num].attribution;
     imgBack.src = species[num].photo;
     speciesName.textContent = species[num].name;
+    scientificName.innerText = species[num].sciName;
     cardListItem.appendChild(card);
     card.appendChild(cardFront);
     cardFront.appendChild(img);
-    cardFront.appendChild(attr);
+    cardFront.appendChild(attribute);
     cardBack.appendChild(imgBack);
     cardBack.appendChild(speciesName);
+    cardBack.appendChild(scientificName);
     card.appendChild(cardBack);
     cardArea.appendChild(cardListItem);
     // for (let piece of cardArea) {
@@ -101,6 +104,7 @@ const getSpecies = async (url) => {
       let photoList = [];
       for (let i = 0; i < jsonResponse.results.length; i++) {
         let obj = {};
+        // avoid adding the same image multiple times to cards created
         if (
           photoList.indexOf(
             jsonResponse.results[i].taxon.default_photo.medium_url
