@@ -12,6 +12,7 @@ let numberOfCards = '';
 let maxCards = 0;
 let prevScrollPosition = window.scrollY;
 
+// Event Listeners for select field and button
 taxaSelect.addEventListener('change', () => {
   return (taxa = `&iconic_taxa=${taxaSelect.value}`);
 });
@@ -21,6 +22,10 @@ areaSelect.addEventListener('change', () => {
 numberToStudy.addEventListener('change', () => {
   numberOfCards = numberToStudy.value;
 });
+generateBtn.addEventListener('click', () => {
+  cardArea.innerHTML = '';
+  getSpecies(urlBase + area + taxa + urlEnd);
+});
 
 // base url for iNaturalist API call, setting some base parameters on photo useage and wild status
 const urlBase =
@@ -28,11 +33,6 @@ const urlBase =
 
 // tailing url query to set order of response
 const urlEnd = '&order=desc&order_by=created_at';
-
-generateBtn.addEventListener('click', () => {
-  cardArea.innerHTML = '';
-  getSpecies(urlBase + area + taxa + urlEnd);
-});
 
 window.onscroll = function () {
   let currentScrollPosition = window.scrollY;
