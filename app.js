@@ -1,4 +1,3 @@
-// const cardArea = document.getElementsByClassName('card__list');
 const cardArea = document.getElementById('allCards');
 const cardFronts = document.getElementsByClassName('card__front');
 const cardBacks = document.getElementsByClassName('card__back');
@@ -29,10 +28,6 @@ testBtn.addEventListener('click', () => {
   cardArea.innerHTML = '';
   getSpecies(urlBase + area + taxa + urlEnd);
 });
-// const url =
-//   'https://api.inaturalist.org/v1/observations?captive=false&native=true&photos=true&license=cc-by&place_id=34&iconic_taxa=Mammalia&per_page=40&order=desc&order_by=created_at';
-// const url =
-//   'https://api.inaturalist.org/v1/observations?captive=false&introduced=false&native=true&photos=true&license=cc-by-nc&photo_license=cc-by-nc&place_id=34&per_page=60&identifications=most_agree&quality_grade=research&iconic_taxa=Mammalia&order=desc&order_by=created_at';
 
 window.onscroll = function () {
   let currentScrollPosition = window.scrollY;
@@ -93,9 +88,8 @@ const repeat = (func, numb) => {
   }
 };
 const getSpecies = async (url) => {
-  // const response = await fetch(url);
   const response = await fetch(url);
-  console.log(urlBase + area + taxa + urlEnd);
+
   if (response.ok) {
     // should this be try?
     species = [];
@@ -121,7 +115,7 @@ const getSpecies = async (url) => {
     // and if the above is try, should this by catch?
     console.log(err);
   }
-  maxCards = species.length;
+  maxCards = species.length; // checks to see if there are enough species in the database to populate the desired card number
   if (maxCards < numberOfCards) {
     alert('sorry, there are not enough records to be found');
   } else {
@@ -148,3 +142,8 @@ const getSpecies = async (url) => {
 };
 
 // https://api.inaturalist.org/v1/observations?captive=false&introduced=false&native=true&photos=true&license=cc-by-nc&photo_license=cc-by-nc&place_id=34&iconic_taxa=Mammalia&identifications=most_agree&quality_grade=research&order=desc&order_by=created_at
+
+// const url =
+//   'https://api.inaturalist.org/v1/observations?captive=false&native=true&photos=true&license=cc-by&place_id=34&iconic_taxa=Mammalia&per_page=40&order=desc&order_by=created_at';
+// const url =
+//   'https://api.inaturalist.org/v1/observations?captive=false&introduced=false&native=true&photos=true&license=cc-by-nc&photo_license=cc-by-nc&place_id=34&per_page=60&identifications=most_agree&quality_grade=research&iconic_taxa=Mammalia&order=desc&order_by=created_at';
