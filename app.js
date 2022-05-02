@@ -21,9 +21,14 @@ areaSelect.addEventListener('change', () => {
 numberToStudy.addEventListener('change', () => {
   numberOfCards = numberToStudy.value;
 });
+
+// base url for iNaturalist API call, setting some base parameters on photo useage and wild status
 const urlBase =
   'https://api.inaturalist.org/v1/observations?captive=false&introduced=false&native=true&photos=true&license=cc-by-nc&photo_license=cc-by-nc&per_page=600&identifications=most_agree';
+
+// tailing url query to set order of response
 const urlEnd = '&order=desc&order_by=created_at';
+
 testBtn.addEventListener('click', () => {
   cardArea.innerHTML = '';
   getSpecies(urlBase + area + taxa + urlEnd);
@@ -88,31 +93,32 @@ const repeat = (func, numb) => {
   }
 };
 const getSpecies = async (url) => {
-  const response = await fetch(url);
-
-  if (response.ok) {
-    // should this be try?
-    species = [];
-    const jsonResponse = await response.json();
-    let photoList = [];
-    for (let i = 0; i < jsonResponse.results.length; i++) {
-      // console.log(jsonResponse.results);
-      let obj = {};
-      if (
-        photoList.indexOf(
-          jsonResponse.results[i].taxon.default_photo.medium_url
-        ) === -1
-      ) {
-        photoList.push(jsonResponse.results[i].taxon.default_photo.medium_url);
-        obj.name = jsonResponse.results[i].species_guess;
-        obj.photo = jsonResponse.results[i].taxon.default_photo.medium_url;
-        obj.attribution =
-          jsonResponse.results[i].taxon.default_photo.attribution;
-        species.push(obj);
+  try {
+    const response = await fetch(url);
+    if (response.ok) {
+      species = [];
+      const jsonResponse = await response.json();
+      let photoList = [];
+      for (let i = 0; i < jsonResponse.results.length; i++) {
+        let obj = {};
+        if (
+          photoList.indexOf(
+            jsonResponse.results[i].taxon.default_photo.medium_url
+          ) === -1
+        ) {
+          photoList.push(
+            jsonResponse.results[i].taxon.default_photo.medium_url
+          );
+          obj.name = jsonResponse.results[i].species_guess;
+          obj.photo = jsonResponse.results[i].taxon.default_photo.medium_url;
+          obj.attribution =
+            jsonResponse.results[i].taxon.default_photo.attribution;
+          species.push(obj);
+        }
       }
+      console.log(jsonResponse.results);
     }
-  } else {
-    // and if the above is try, should this by catch?
+  } catch (err) {
     console.log(err);
   }
   maxCards = species.length; // checks to see if there are enough species in the database to populate the desired card number
