@@ -17,6 +17,7 @@ taxaSelect.addEventListener('change', () => {
   return (taxa = `&iconic_taxa=${taxaSelect.value}`);
 });
 areaSelect.addEventListener('change', () => {
+  console.log(areaSelect.value);
   return (area = `&place_id=${areaSelect.value}`);
 });
 numberToStudy.addEventListener('change', () => {
@@ -34,6 +35,7 @@ const urlBase =
 // tailing url query to set order of response
 const urlEnd = '&order=desc&order_by=created_at';
 
+// Move .site-logo up on window scroll to prevent overlap of select boxes.
 window.onscroll = function () {
   let currentScrollPosition = window.scrollY;
   if (
