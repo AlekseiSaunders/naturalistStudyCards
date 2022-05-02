@@ -88,9 +88,9 @@ img {
   column-gap: 10px;
 }
 .card__list-item {
-  width: 400px;
+  width: 300px;
   height: 600px;
-  margin: 2rem 2rem;
+  margin: 2rem .5rem;
   perspective: 1000px;
 }
 .card {
@@ -120,4 +120,13 @@ img {
 .card {
   transition: transform 1s;
   transform-style: preserve-3d;
+}
+
+@media (min-width:400px){
+.card__list-item {
+	width: 400px;
+	height: 600px;
+	margin: 2rem 2rem;
+	perspective: 1000px;
+}
 }
