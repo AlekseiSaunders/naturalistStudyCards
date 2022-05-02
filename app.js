@@ -67,6 +67,7 @@ const createCard = function () {
     let imgBack = document.createElement('img');
     let speciesName = document.createElement('p');
     let scientificName = document.createElement('p');
+    let wikipediaLink = document.createElement('a');
     cardListItem.classList.add('card__list-item');
     card.classList.add('card');
     cardFront.classList.add('card__front');
@@ -76,6 +77,9 @@ const createCard = function () {
     imgBack.src = species[num].photo;
     speciesName.textContent = species[num].name;
     scientificName.innerText = species[num].sciName;
+    wikipediaLink.innerText = 'Click this link to learn more at Wikipedia';
+    wikipediaLink.href = species[num].wikiLink;
+    wikipediaLink.target = '_blank';
     cardListItem.appendChild(card);
     card.appendChild(cardFront);
     cardFront.appendChild(img);
@@ -83,6 +87,7 @@ const createCard = function () {
     cardBack.appendChild(imgBack);
     cardBack.appendChild(speciesName);
     cardBack.appendChild(scientificName);
+    cardBack.appendChild(wikipediaLink);
     card.appendChild(cardBack);
     cardArea.appendChild(cardListItem);
     // for (let piece of cardArea) {
