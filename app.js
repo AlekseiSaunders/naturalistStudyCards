@@ -1,7 +1,7 @@
 const cardArea = document.getElementById('allCards');
 const cardFronts = document.getElementsByClassName('card__front');
 const cardBacks = document.getElementsByClassName('card__back');
-const testBtn = document.getElementById('btn');
+const generateBtn = document.getElementById('btn');
 const taxaSelect = document.getElementById('taxa-select');
 const areaSelect = document.getElementById('area-select');
 const numberToStudy = document.getElementById('number-select');
@@ -29,7 +29,7 @@ const urlBase =
 // tailing url query to set order of response
 const urlEnd = '&order=desc&order_by=created_at';
 
-testBtn.addEventListener('click', () => {
+generateBtn.addEventListener('click', () => {
   cardArea.innerHTML = '';
   getSpecies(urlBase + area + taxa + urlEnd);
 });
