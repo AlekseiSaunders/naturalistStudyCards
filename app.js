@@ -52,7 +52,7 @@ window.onscroll = function () {
 const createCard = function () {
   let numbers = [];
   while (numbers.length < numberOfCards) {
-    let randomNumber = Math.floor(Math.random() * (maxCards - 0 + 0) + 0);
+    let randomNumber = Math.floor(Math.random() * maxCards);
     if (numbers.indexOf(randomNumber) === -1) {
       numbers.push(randomNumber);
     }
