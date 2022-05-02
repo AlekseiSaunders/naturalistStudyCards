@@ -51,14 +51,12 @@ window.onscroll = function () {
 
 const createCard = function () {
   let numbers = [];
-  console.log(numberOfCards);
   while (numbers.length < numberOfCards) {
     let randomNumber = Math.floor(Math.random() * (maxCards - 0 + 0) + 0);
     if (numbers.indexOf(randomNumber) === -1) {
       numbers.push(randomNumber);
     }
   }
-  console.log(numbers);
   for (let num of numbers) {
     let cardListItem = document.createElement('article');
     let card = document.createElement('div');
