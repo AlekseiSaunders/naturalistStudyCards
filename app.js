@@ -111,10 +111,12 @@ const getSpecies = async (url) => {
           photoList.push(
             jsonResponse.results[i].taxon.default_photo.medium_url
           );
-          obj.name = jsonResponse.results[i].species_guess;
+          obj.name = jsonResponse.results[i].taxon.preferred_common_name;
           obj.photo = jsonResponse.results[i].taxon.default_photo.medium_url;
           obj.attribution =
             jsonResponse.results[i].taxon.default_photo.attribution;
+          obj.sciName = jsonResponse.results[i].taxon.name;
+          obj.wikiLink = jsonResponse.results[i].taxon.wikipedia_url;
           species.push(obj);
         }
       }
