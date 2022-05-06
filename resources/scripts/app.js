@@ -7,7 +7,7 @@ const generateBtn = document.getElementById('btn');
 const taxaSelect = document.getElementById('taxa-select');
 const areaSelect = document.getElementById('area-select');
 const numberToStudy = document.getElementById('number-select');
-let species = [];
+let arrOfSpecies = [];
 let taxa = '';
 let area = '';
 let numberOfCards = '';
@@ -74,13 +74,13 @@ const createCard = function () {
     card.classList.add('card');
     cardFront.classList.add('card__front');
     cardBack.classList.add('card__back');
-    img.src = species[num].photo;
-    attribute.textContent = species[num].attribution;
-    imgBack.src = species[num].photo;
-    speciesName.textContent = species[num].name;
-    scientificName.innerText = species[num].sciName;
+    img.src = arrOfSpecies[num].photo;
+    attribute.textContent = arrOfSpecies[num].attribution;
+    imgBack.src = arrOfSpecies[num].photo;
+    speciesName.textContent = arrOfSpecies[num].name;
+    scientificName.innerText = arrOfSpecies[num].sciName;
     wikipediaLink.innerText = 'Click this link to learn more at Wikipedia';
-    wikipediaLink.href = species[num].wikiLink;
+    wikipediaLink.href = arrOfSpecies[num].wikiLink;
     wikipediaLink.target = '_blank';
     cardListItem.appendChild(card);
     card.appendChild(cardFront);
@@ -106,7 +106,7 @@ const getSpecies = async (url) => {
   try {
     const response = await fetch(url);
     if (response.ok) {
-      species = [];
+      arrOfSpecies = [];
       const jsonResponse = await response.json();
       let photoList = [];
       for (let i = 0; i < jsonResponse.results.length; i++) {
@@ -126,7 +126,7 @@ const getSpecies = async (url) => {
             jsonResponse.results[i].taxon.default_photo.attribution;
           obj.sciName = jsonResponse.results[i].taxon.name;
           obj.wikiLink = jsonResponse.results[i].taxon.wikipedia_url;
-          species.push(obj);
+          arrOfSpecies.push(obj);
         }
       }
       console.log(jsonResponse.results);
@@ -134,7 +134,7 @@ const getSpecies = async (url) => {
   } catch (err) {
     console.log(err);
   }
-  maxCards = species.length; // checks to see if there are enough species in the database to populate the desired card number
+  maxCards = arrOfSpecies.length; // checks to see if there are enough species in the database to populate the desired card number
   if (maxCards < numberOfCards) {
     alert('sorry, there are not enough records to be found');
   } else {
