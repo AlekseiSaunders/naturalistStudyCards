@@ -140,24 +140,6 @@ const getSpecies = async (url) => {
   } else {
     createCard();
   }
-
-  // console.log(species);
-  // for (const card of cardFronts) {
-  //   let imgEl = document.createElement('img');
-  //   let imgAttr = document.createElement('p');
-  //   imgEl.src = species[2].photo;
-  //   imgAttr.textContent = species[2].attribution;
-  //   card.appendChild(imgEl);
-  //   card.appendChild(imgAttr);
-  // }
-  // for (const card of cardBacks) {
-  //   let imgElBack = document.createElement('img');
-  //   let speciesName = document.createElement('p');
-  //   imgElBack.src = species[2].photo;
-  //   speciesName.textContent = species[2].name;
-  //   card.appendChild(imgElBack);
-  //   card.appendChild(speciesName);
-  // }
 };
 
 stopScroll();
