@@ -38,18 +38,6 @@ const urlBase =
 const urlEnd = '&order=desc&order_by=created_at';
 
 // Move .site-logo up on window scroll to prevent overlap of select boxes.
-window.onscroll = function () {
-  let currentScrollPosition = window.scrollY;
-  if (
-    prevScrollPosition > currentScrollPosition &&
-    currentScrollPosition < 120
-  ) {
-    document.getElementById('siteNav').style.top = '0';
-  } else {
-    document.getElementById('siteNav').style.top = '-145px';
-  }
-  prevScrollPosition = currentScrollPosition;
-};
 
 const createCard = function () {
   let numbers = [];

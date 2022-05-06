@@ -1,9 +1,9 @@
 let stopScroll = (window.onscroll = function () {
-  let prevScrollPosition = 120;
+  let prevScrollPosition = 50;
   let currentScrollPosition = window.scrollY;
   if (
     prevScrollPosition > currentScrollPosition &&
-    currentScrollPosition < 120
+    currentScrollPosition < 110
   ) {
     document.getElementById('siteNav').style.top = '0';
   } else {
