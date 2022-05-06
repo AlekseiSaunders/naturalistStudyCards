@@ -13,7 +13,7 @@ let taxa = '';
 let area = '';
 let numberOfCards = '';
 let maxCards = 0;
-let prevScrollPosition = window.scrollY;
+
 
 // Event Listeners for select field and button
 taxaSelect.addEventListener('change', () => {
