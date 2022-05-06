@@ -1,3 +1,5 @@
+import stopScroll from './onscroll.js';
+
 const cardArea = document.getElementById('allCards');
 const cardFronts = document.getElementsByClassName('card__front');
 const cardBacks = document.getElementsByClassName('card__back');
@@ -158,6 +160,7 @@ const getSpecies = async (url) => {
   // }
 };
 
+stopScroll();
 // https://api.inaturalist.org/v1/observations?captive=false&introduced=false&native=true&photos=true&license=cc-by-nc&photo_license=cc-by-nc&place_id=34&iconic_taxa=Mammalia&identifications=most_agree&quality_grade=research&order=desc&order_by=created_at
 
 // const url =
