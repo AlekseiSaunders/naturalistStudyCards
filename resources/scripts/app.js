@@ -44,8 +44,9 @@ const urlEnd = '&order=desc&order_by=created_at';
 const createCard = function (arrOfSpecies) {
   console.log(arrOfSpecies);
   let numbers = [];
+  maxCards = arrOfSpecies.length;
   while (numbers.length < numberOfCards) {
-    let randomNumber = Math.floor(Math.random() * arrOfSpecies.length);
+    let randomNumber = Math.floor(Math.random() * maxCards);
     if (numbers.indexOf(randomNumber) === -1) {
       numbers.push(randomNumber);
     }
