@@ -1,4 +1,5 @@
 import stopScroll from './onscroll.js';
+import getSpecies from './getSpecies.js';
 
 const cardArea = document.getElementById('allCards');
 const cardFronts = document.getElementsByClassName('card__front');
@@ -7,7 +8,7 @@ const generateBtn = document.getElementById('btn');
 const taxaSelect = document.getElementById('taxa-select');
 const areaSelect = document.getElementById('area-select');
 const numberToStudy = document.getElementById('number-select');
-let arrOfSpecies = [];
+
 let taxa = '';
 let area = '';
 let numberOfCards = '';
@@ -25,9 +26,10 @@ areaSelect.addEventListener('change', () => {
 numberToStudy.addEventListener('change', () => {
   numberOfCards = numberToStudy.value;
 });
-generateBtn.addEventListener('click', () => {
+generateBtn.addEventListener('click', async () => {
   cardArea.innerHTML = '';
-  getSpecies(urlBase + area + taxa + urlEnd);
+  let species = await getSpecies(urlBase + area + taxa + urlEnd);
+  createCard(species);
 });
 
 // base url for iNaturalist API call, setting some base parameters on photo usage and wild status
@@ -39,10 +41,11 @@ const urlEnd = '&order=desc&order_by=created_at';
 
 // Move .site-logo up on window scroll to prevent overlap of select boxes.
 
-const createCard = function () {
+const createCard = function (arrOfSpecies) {
+  console.log(arrOfSpecies);
   let numbers = [];
   while (numbers.length < numberOfCards) {
-    let randomNumber = Math.floor(Math.random() * maxCards);
+    let randomNumber = Math.floor(Math.random() * arrOfSpecies.length);
     if (numbers.indexOf(randomNumber) === -1) {
       numbers.push(randomNumber);
     }
@@ -88,45 +91,6 @@ const createCard = function () {
 const repeat = (func, numb) => {
   for (let i = 1; i <= numb; i++) {
     func();
-  }
-};
-const getSpecies = async (url) => {
-  try {
-    const response = await fetch(url);
-    if (response.ok) {
-      arrOfSpecies = [];
-      const jsonResponse = await response.json();
-      let photoList = [];
-      for (let i = 0; i < jsonResponse.results.length; i++) {
-        let obj = {};
-        // avoid adding the same image multiple times to cards created
-        if (
-          photoList.indexOf(
-            jsonResponse.results[i].taxon.default_photo.medium_url
-          ) === -1
-        ) {
-          photoList.push(
-            jsonResponse.results[i].taxon.default_photo.medium_url
-          );
-          obj.name = jsonResponse.results[i].taxon.preferred_common_name;
-          obj.photo = jsonResponse.results[i].taxon.default_photo.medium_url;
-          obj.attribution =
-            jsonResponse.results[i].taxon.default_photo.attribution;
-          obj.sciName = jsonResponse.results[i].taxon.name;
-          obj.wikiLink = jsonResponse.results[i].taxon.wikipedia_url;
-          arrOfSpecies.push(obj);
-        }
-      }
-      console.log(jsonResponse.results);
-    }
-  } catch (err) {
-    console.log(err);
-  }
-  maxCards = arrOfSpecies.length; // checks to see if there are enough species in the database to populate the desired card number
-  if (maxCards < numberOfCards) {
-    alert('sorry, there are not enough records to be found');
-  } else {
-    createCard();
   }
 };
 
