@@ -29,7 +29,13 @@ numberToStudy.addEventListener('change', () => {
 generateBtn.addEventListener('click', async () => {
   cardArea.innerHTML = '';
   let species = await getSpecies(urlBase + area + taxa + urlEnd);
-  createCard(species);
+  maxCards = species.length;
+  if (maxCards < numberOfCards) {
+    alert('Sorry, not enough cards to study. The page will reset.');
+    location.reload();
+  } else {
+    createCard(species);
+  }
 });
 
 // base url for iNaturalist API call, setting some base parameters on photo usage and wild status
@@ -44,7 +50,6 @@ const urlEnd = '&order=desc&order_by=created_at';
 const createCard = function (arrOfSpecies) {
   console.log(arrOfSpecies);
   let numbers = [];
-  maxCards = arrOfSpecies.length;
   while (numbers.length < numberOfCards) {
     let randomNumber = Math.floor(Math.random() * maxCards);
     if (numbers.indexOf(randomNumber) === -1) {
