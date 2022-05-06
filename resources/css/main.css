@@ -53,7 +53,7 @@ img {
 .home-intro {
   padding-top: 110px;
   padding-bottom: 50px;
-  background: #777 url(./colorado-scene-jamie-gilluly.jpg);
+  background: #777 url(../images/colorado-scene-jamie-gilluly.jpg);
   background-size: cover;
   background-position: center;
   background-blend-mode: multiply;
