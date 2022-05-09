@@ -1,3 +1,7 @@
+/* ------------ */
+/* Variable dec */
+/*--------------*/
+
 :root {
 	--ff-title: 'Mukta',
 		sans-serif;
@@ -6,8 +10,6 @@
 	--ff-accent: 'Work Sans',
 		sans-serif;
 }
-
-
 
 
 html {
@@ -52,6 +54,8 @@ img {
 	flex-direction: column;
 	min-height: 100%;
 }
+
+
 
 /*--------------*/
 /*  Nav Layout  */
@@ -142,6 +146,9 @@ img {
   border: 2px solid black;
   border-radius: 7px;
 	font-family: var(--ff-accent)
+}
+.cardText{
+	padding: 1em 1em;
 }
 .card__front,
 .card__back {
