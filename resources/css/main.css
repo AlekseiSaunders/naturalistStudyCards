@@ -46,6 +46,9 @@ h4 {
 	color: hsl(100, 20%, 60%);
 }
 
+.attribution {
+	font-size: .75rem;
+}
 
 /* ------------ */
 /* Basic layout */
