@@ -1,5 +1,18 @@
+:root {
+	--ff-title: 'Mukta',
+		sans-serif;
+	--ff-body: 'Source Sans Pro',
+		sans-serif;
+	--ff-accent: 'Work Sans',
+		sans-serif;
+}
+
+
+
+
 html {
 font-size: 1rem;
+font-family: var(--ff-body);
 }
 
 /* ------------ */
@@ -20,11 +33,13 @@ header {
 	color: white;
 	transition: top 0.3s;
 	height: 110px;
+	font-family: var(--ff-title);
 }
 
 footer {
   padding: .5em .75em;
 	font-size: .875rem;
+	font-family: var(--ff-title);
 }
 
 img {
@@ -126,6 +141,7 @@ img {
   height: 100%;
   border: 2px solid black;
   border-radius: 7px;
+	font-family: var(--ff-accent)
 }
 .card__front,
 .card__back {
