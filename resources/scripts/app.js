@@ -74,6 +74,11 @@ const createCard = function (arrOfSpecies) {
     cardBack.classList.add('card__back');
     cardTextFront.classList.add('cardText');
     cardTextBack.classList.add('cardText');
+    attribute.classList.add('attribution');
+    img.setAttribute(
+      'alt',
+      `${arrOfSpecies[num].name} by ${arrOfSpecies[num].attribution}`
+    );
     img.src = arrOfSpecies[num].photo;
     attribute.textContent = arrOfSpecies[num].attribution;
     imgBack.src = arrOfSpecies[num].photo;
