@@ -43,8 +43,6 @@ const urlBase =
 // tailing url query to set order of response
 const urlEnd = '&order=desc&order_by=created_at';
 
-// Move .site-logo up on window scroll to prevent overlap of select boxes.
-
 const createCard = function (arrOfSpecies) {
   let numbers = [];
   while (numbers.length < numberOfCards) {
@@ -100,5 +98,5 @@ const createCard = function (arrOfSpecies) {
   }
 };
 
+// Move .site-logo up on window scroll to prevent overlap of select boxes.
 stopScroll();
-
