@@ -19,7 +19,6 @@ taxaSelect.addEventListener('change', () => {
   return (taxa = `&iconic_taxa=${taxaSelect.value}`);
 });
 areaSelect.addEventListener('change', () => {
-  console.log(areaSelect.value);
   return (area = `&place_id=${areaSelect.value}`);
 });
 numberToStudy.addEventListener('change', () => {
@@ -39,7 +38,7 @@ generateBtn.addEventListener('click', async () => {
 
 // base url for iNaturalist API call, setting some base parameters on photo usage and wild status
 const urlBase =
-  'https://api.inaturalist.org/v1/observations?captive=false&introduced=false&native=true&photos=true&license=cc-by-nc&photo_license=cc-by-nc&per_page=600&identifications=most_agree';
+  'https://api.inaturalist.org/v1/observations?captive=false&introduced=false&native=true&photos=true&license=cc-by-nc&photo_license=cc-by-nc&per_page=200&identifications=most_agree';
 
 // tailing url query to set order of response
 const urlEnd = '&order=desc&order_by=created_at';
@@ -47,7 +46,6 @@ const urlEnd = '&order=desc&order_by=created_at';
 // Move .site-logo up on window scroll to prevent overlap of select boxes.
 
 const createCard = function (arrOfSpecies) {
-  console.log(arrOfSpecies);
   let numbers = [];
   while (numbers.length < numberOfCards) {
     let randomNumber = Math.floor(Math.random() * maxCards);
@@ -102,11 +100,6 @@ const createCard = function (arrOfSpecies) {
     // for (let piece of cardArea) {
     //   piece.appendChild(cardListItem);
     // }
-  }
-};
-const repeat = (func, numb) => {
-  for (let i = 1; i <= numb; i++) {
-    func();
   }
 };
 

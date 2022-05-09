@@ -11,9 +11,9 @@ const getSpecies = async (url) => {
         let obj = {};
         // avoid adding the same image multiple times to cards created
         if (
-          photoList.indexOf(
+          photoList.includes(
             jsonResponse.results[i].taxon.default_photo.medium_url
-          ) === -1
+          ) === false
         ) {
           photoList.push(
             jsonResponse.results[i].taxon.default_photo.medium_url
@@ -27,7 +27,6 @@ const getSpecies = async (url) => {
           arrOfSpecies.push(obj);
         }
       }
-      console.log(jsonResponse.results);
     }
   } catch (err) {
     console.log(err);
@@ -35,4 +34,4 @@ const getSpecies = async (url) => {
   return arrOfSpecies;
 };
 
-export default getSpecies
+export default getSpecies;
