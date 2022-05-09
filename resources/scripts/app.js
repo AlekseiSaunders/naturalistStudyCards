@@ -97,16 +97,8 @@ const createCard = function (arrOfSpecies) {
     cardTextBack.appendChild(wikipediaLink);
     card.appendChild(cardBack);
     cardArea.appendChild(cardListItem);
-    // for (let piece of cardArea) {
-    //   piece.appendChild(cardListItem);
-    // }
   }
 };
 
 stopScroll();
-// https://api.inaturalist.org/v1/observations?captive=false&introduced=false&native=true&photos=true&license=cc-by-nc&photo_license=cc-by-nc&place_id=34&iconic_taxa=Mammalia&identifications=most_agree&quality_grade=research&order=desc&order_by=created_at
 
-// const url =
-//   'https://api.inaturalist.org/v1/observations?captive=false&native=true&photos=true&license=cc-by&place_id=34&iconic_taxa=Mammalia&per_page=40&order=desc&order_by=created_at';
-// const url =
-//   'https://api.inaturalist.org/v1/observations?captive=false&introduced=false&native=true&photos=true&license=cc-by-nc&photo_license=cc-by-nc&place_id=34&per_page=60&identifications=most_agree&quality_grade=research&iconic_taxa=Mammalia&order=desc&order_by=created_at';
