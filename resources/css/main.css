@@ -149,9 +149,17 @@ img {
   display: inline-block;
   text-decoration: none;
   color: inherit;
-  background: green;
+  background: hsl(120, 100%, 25%);
   padding: 0.75em 1em;
   border-radius: 20px;
+	transform: scale(1.0);
+	transition: all 250ms;
+}
+
+.btn-like:hover,
+.btn-like:focus {
+	background-color: hsl(120, 100%, 40%);
+	transform: scale(1.1);
 }
 
 /*---------------*/
