@@ -18,6 +18,36 @@ font-family: var(--ff-body);
 }
 
 /* ------------ */
+/* Typography */
+/*--------------*/
+
+h3 {
+	font-family: var(--ff-title);
+	font-size: 1.75rem;
+	margin-bottom: .25em;
+}
+
+h4 {
+	font-family: var(--ff-accent);
+	font-size: 1.25rem;
+	font-weight: 400;
+	font-style: italic;
+	margin-bottom: .5em;
+}
+
+.cardText a {
+	font-family: var(--ff-accent);
+  color: hsl(100, 0%, 70%);
+	text-decoration: none;
+}
+
+.cardText a:hover,
+.cardText a:focus {
+	color: hsl(100, 20%, 60%);
+}
+
+
+/* ------------ */
 /* Basic layout */
 /*--------------*/
 
