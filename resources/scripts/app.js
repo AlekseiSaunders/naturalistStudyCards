@@ -14,7 +14,6 @@ let area = '';
 let numberOfCards = '';
 let maxCards = 0;
 
-
 // Event Listeners for select field and button
 taxaSelect.addEventListener('change', () => {
   return (taxa = `&iconic_taxa=${taxaSelect.value}`);
@@ -62,15 +61,19 @@ const createCard = function (arrOfSpecies) {
     let cardFront = document.createElement('div');
     let cardBack = document.createElement('div');
     let img = document.createElement('img');
+    let cardTextFront = document.createElement('div');
+    let cardTextBack = document.createElement('div');
     let attribute = document.createElement('p');
     let imgBack = document.createElement('img');
-    let speciesName = document.createElement('p');
-    let scientificName = document.createElement('p');
+    let speciesName = document.createElement('h3');
+    let scientificName = document.createElement('h4');
     let wikipediaLink = document.createElement('a');
     cardListItem.classList.add('card__list-item');
     card.classList.add('card');
     cardFront.classList.add('card__front');
     cardBack.classList.add('card__back');
+    cardTextFront.classList.add('cardText');
+    cardTextBack.classList.add('cardText');
     img.src = arrOfSpecies[num].photo;
     attribute.textContent = arrOfSpecies[num].attribution;
     imgBack.src = arrOfSpecies[num].photo;
@@ -82,11 +85,13 @@ const createCard = function (arrOfSpecies) {
     cardListItem.appendChild(card);
     card.appendChild(cardFront);
     cardFront.appendChild(img);
-    cardFront.appendChild(attribute);
+    cardTextFront.appendChild(attribute);
+    cardFront.appendChild(cardTextFront);
     cardBack.appendChild(imgBack);
-    cardBack.appendChild(speciesName);
-    cardBack.appendChild(scientificName);
-    cardBack.appendChild(wikipediaLink);
+    cardBack.appendChild(cardTextBack);
+    cardTextBack.appendChild(speciesName);
+    cardTextBack.appendChild(scientificName);
+    cardTextBack.appendChild(wikipediaLink);
     card.appendChild(cardBack);
     cardArea.appendChild(cardListItem);
     // for (let piece of cardArea) {
