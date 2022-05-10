@@ -106,6 +106,18 @@ const createCard = function (arrOfSpecies) {
     cardTextBack.appendChild(wikipediaLink);
     card.appendChild(cardBack);
     cardArea.appendChild(cardListItem);
+    cardScorePositive.addEventListener('click', () => {
+      card.style.transform = 'none';
+      card.style.transition = 'none';
+      cardBack.style.transform = 'rotateY(0deg)';
+      cardBack.style.backfaceVisibility = 'visible';
+    });
+    cardScoreNegative.addEventListener('click', () => {
+      card.style.transform = 'none';
+      card.style.transition = 'none';
+      cardBack.style.transform = 'rotateY(0deg)';
+      cardBack.style.backfaceVisibility = 'visible';
+    });
   }
 };
 
