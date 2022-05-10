@@ -207,6 +207,11 @@ img {
   transform: rotateY(180deg);
 }
 
+.card__back img {
+	margin: 0 auto;
+	width: 65%;
+}
+
 .cardScore {
 	display: flex;
 	justify-content: space-around;
