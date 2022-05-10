@@ -59,6 +59,9 @@ const createCard = function (arrOfSpecies) {
     let img = document.createElement('img');
     let cardTextFront = document.createElement('div');
     let cardTextBack = document.createElement('div');
+    let cardScoreBack = document.createElement('div');
+    let cardScorePositive = document.createElement('div');
+    let cardScoreNegative = document.createElement('div');
     let attribute = document.createElement('p');
     let imgBack = document.createElement('img');
     let speciesName = document.createElement('h3');
@@ -70,6 +73,9 @@ const createCard = function (arrOfSpecies) {
     cardBack.classList.add('card__back');
     cardTextFront.classList.add('cardText');
     cardTextBack.classList.add('cardText');
+    cardScoreBack.classList.add('cardScore');
+    cardScorePositive.classList.add('positiveScore');
+    cardScoreNegative.classList.add('negativeScore');
     attribute.classList.add('attribution');
     img.setAttribute(
       'alt',
@@ -81,6 +87,8 @@ const createCard = function (arrOfSpecies) {
     speciesName.textContent = arrOfSpecies[num].name;
     scientificName.innerText = arrOfSpecies[num].sciName;
     wikipediaLink.innerText = 'Click this link to learn more at Wikipedia';
+    cardScorePositive.innerText = '✔️';
+    cardScoreNegative.innerText = '❌';
     wikipediaLink.href = arrOfSpecies[num].wikiLink;
     wikipediaLink.target = '_blank';
     cardListItem.appendChild(card);
@@ -90,6 +98,9 @@ const createCard = function (arrOfSpecies) {
     cardFront.appendChild(cardTextFront);
     cardBack.appendChild(imgBack);
     cardBack.appendChild(cardTextBack);
+    cardBack.appendChild(cardScoreBack);
+    cardScoreBack.appendChild(cardScorePositive);
+    cardScoreBack.appendChild(cardScoreNegative);
     cardTextBack.appendChild(speciesName);
     cardTextBack.appendChild(scientificName);
     cardTextBack.appendChild(wikipediaLink);
