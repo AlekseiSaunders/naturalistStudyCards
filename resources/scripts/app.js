@@ -75,7 +75,9 @@ const createCard = function (arrOfSpecies) {
     cardTextBack.classList.add('cardText');
     cardScoreBack.classList.add('cardScore');
     cardScorePositive.classList.add('positiveScore');
+    cardScorePositive.setAttribute('id', 'positiveAnswer');
     cardScoreNegative.classList.add('negativeScore');
+    cardScoreNegative.setAttribute('id', 'negativeAnswer');
     attribute.classList.add('attribution');
     img.setAttribute(
       'alt',
