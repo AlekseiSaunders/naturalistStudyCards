@@ -8,11 +8,20 @@ const generateBtn = document.getElementById('btn');
 const taxaSelect = document.getElementById('taxa-select');
 const areaSelect = document.getElementById('area-select');
 const numberToStudy = document.getElementById('number-select');
-
+const currentScoreBoard = document.getElementById('currentScoreBoard');
+const runningScoreBoard = document.getElementById('runningScoreBoard');
 let taxa = '';
 let area = '';
 let numberOfCards = '';
 let maxCards = 0;
+let currentScore = 0;
+
+currentScoreBoard.textContent = `Current Score: ${currentScore}`;
+let runningScore = JSON.parse(localStorage.getItem('runningScore'));
+if (!runningScore) {
+  runningScore = 0;
+}
+runningScoreBoard.textContent = `All Time Score: ${runningScore}`;
 
 // Event Listeners for select field and button
 taxaSelect.addEventListener('change', () => {
@@ -107,12 +116,18 @@ const createCard = function (arrOfSpecies) {
     card.appendChild(cardBack);
     cardArea.appendChild(cardListItem);
     cardScorePositive.addEventListener('click', () => {
+      currentScore += 1;
+      currentScoreBoard.textContent = `Current Score: ${currentScore}`;
+      runningScore += 1;
+      localStorage.setItem('runningScore', JSON.stringify(runningScore));
+      runningScoreBoard.textContent = `All Time Score: ${runningScore}`;
       card.style.transform = 'none';
       card.style.transition = 'none';
       cardBack.style.transform = 'rotateY(0deg)';
       cardBack.style.backfaceVisibility = 'visible';
     });
     cardScoreNegative.addEventListener('click', () => {
+      runningScoreBoard.textContent = `All Time Score: ${runningScore}`;
       card.style.transform = 'none';
       card.style.transition = 'none';
       cardBack.style.transform = 'rotateY(0deg)';
