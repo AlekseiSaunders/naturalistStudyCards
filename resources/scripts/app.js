@@ -82,7 +82,7 @@ const createCard = function (arrOfSpecies) {
       `${arrOfSpecies[num].name} by ${arrOfSpecies[num].attribution}`
     );
     img.src = arrOfSpecies[num].photo;
-    attribute.textContent = arrOfSpecies[num].attribution;
+    attribute.textContent = `Photo ${arrOfSpecies[num].attribution}`;
     imgBack.src = arrOfSpecies[num].photo;
     speciesName.textContent = arrOfSpecies[num].name;
     scientificName.innerText = arrOfSpecies[num].sciName;
