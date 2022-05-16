@@ -164,6 +164,14 @@ img {
 	background-color: hsl(120, 100%, 40%);
 	transform: scale(1.1);
 }
+.scoreboard {
+display: flex;
+max-width: 25%;
+justify-content: space-between;
+margin: 0 auto;
+margin-top: 1em;
+
+}
 
 /*---------------*/
 /*   Card Area   */
