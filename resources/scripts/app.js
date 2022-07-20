@@ -25,7 +25,7 @@ runningScoreBoard.textContent = `All Time Score: ${runningScore}`;
 
 // Event Listeners for select field and button
 taxaSelect.addEventListener('change', () => {
-  return (taxa = `&iconic_taxa=${taxaSelect.value}`);
+  return (taxa = `&taxon_id=${taxaSelect.value}`);
 });
 areaSelect.addEventListener('change', () => {
   return (area = `&place_id=${areaSelect.value}`);
