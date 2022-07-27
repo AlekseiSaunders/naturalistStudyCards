@@ -3,18 +3,14 @@
 /*--------------*/
 
 :root {
-	--ff-title: 'Mukta',
-		sans-serif;
-	--ff-body: 'Source Sans Pro',
-		sans-serif;
-	--ff-accent: 'Work Sans',
-		sans-serif;
+  --ff-title: 'Mukta', sans-serif;
+  --ff-body: 'Source Sans Pro', sans-serif;
+  --ff-accent: 'Work Sans', sans-serif;
 }
 
-
 html {
-font-size: 1rem;
-font-family: var(--ff-body);
+  font-size: 1rem;
+  font-family: var(--ff-body);
 }
 
 /* ------------ */
@@ -22,59 +18,58 @@ font-family: var(--ff-body);
 /*--------------*/
 
 h3 {
-	font-family: var(--ff-title);
-	font-size: 1.75rem;
-	margin-bottom: .25em;
+  font-family: var(--ff-title);
+  font-size: 1.75rem;
+  margin-bottom: 0.25em;
 }
 
 h4 {
-	font-family: var(--ff-accent);
-	font-size: 1.25rem;
-	font-weight: 400;
-	font-style: italic;
-	margin-bottom: .5em;
+  font-family: var(--ff-accent);
+  font-size: 1.25rem;
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: 0.5em;
 }
 
 .cardText a {
-	font-family: var(--ff-accent);
+  font-family: var(--ff-accent);
   color: hsl(100, 0%, 70%);
-	text-decoration: none;
+  text-decoration: none;
 }
 
 .cardText a:hover,
 .cardText a:focus {
-	color: hsl(100, 20%, 60%);
+  color: hsl(100, 20%, 60%);
 }
 
 .attribution {
-	font-size: .75rem;
+  font-size: 0.75rem;
 }
 
 /* ------------ */
 /* Basic layout */
 /*--------------*/
 
-
 header {
-	position: fixed;
-	top: 0;
-	right: 0;
-	left: 0;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
-	padding: 0.5em 0.75em;
-	color: white;
-	transition: top 0.3s;
-	height: 110px;
-	font-family: var(--ff-title);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0.5em 0.75em;
+  color: white;
+  transition: top 0.3s;
+  height: 110px;
+  font-family: var(--ff-title);
 }
 
 footer {
-  padding: .5em .75em;
-	font-size: .875rem;
-	font-family: var(--ff-title);
+  padding: 0.5em 0.75em;
+  font-size: 0.875rem;
+  font-family: var(--ff-title);
 }
 
 img {
@@ -83,12 +78,10 @@ img {
 }
 
 .wrapper {
-	display: flex;
-	flex-direction: column;
-	min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
-
-
 
 /*--------------*/
 /*  Nav Layout  */
@@ -103,7 +96,7 @@ img {
   color: inherit;
   font-weight: 900;
   font-size: 2rem;
-  padding-bottom: .5rem;
+  padding-bottom: 0.5rem;
 }
 .nav__list {
   list-style: none;
@@ -122,14 +115,14 @@ img {
 }
 
 .footer-nav {
-	display: flex;
-	justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 /*---------------*/
 /*  Select Area  */
 /*---------------*/
 .home-intro {
-  padding-top: 110px;
+  padding-top: 20px;
   padding-bottom: 50px;
   background: #777 url(../images/colorado-scene-jamie-gilluly.jpg);
   background-size: cover;
@@ -141,12 +134,18 @@ img {
 .selects {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
+  justify-content: center;
+  align-items: center;
   margin-top: 5rem;
   margin-bottom: 40px;
 }
 .select__list {
+  display: flex;
+  gap: 15px;
   margin: 0 20px;
+}
+label {
+  margin-left: 5px;
 }
 .btn-like {
   display: inline-block;
@@ -155,22 +154,21 @@ img {
   background: hsl(120, 100%, 25%);
   padding: 0.75em 1em;
   border-radius: 20px;
-	transform: scale(1.0);
-	transition: all 250ms;
+  transform: scale(1);
+  transition: all 250ms;
 }
 
 .btn-like:hover,
 .btn-like:focus {
-	background-color: hsl(120, 100%, 40%);
-	transform: scale(1.1);
+  background-color: hsl(120, 100%, 40%);
+  transform: scale(1.1);
 }
 .scoreboard {
-display: flex;
-max-width: 25%;
-justify-content: space-between;
-margin: 0 auto;
-margin-top: 1em;
-
+  display: flex;
+  max-width: 25%;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-top: 1em;
 }
 
 /*---------------*/
@@ -185,7 +183,7 @@ margin-top: 1em;
 .card__list-item {
   width: 300px;
   height: 600px;
-  margin: 2rem .5rem;
+  margin: 2rem 0.5rem;
   perspective: 1000px;
 }
 .card {
@@ -194,10 +192,10 @@ margin-top: 1em;
   height: 100%;
   border: 2px solid black;
   border-radius: 7px;
-	font-family: var(--ff-accent)
+  font-family: var(--ff-accent);
 }
-.cardText{
-	padding: 1em 1em;
+.cardText {
+  padding: 1em 1em;
 }
 .card__front,
 .card__back {
@@ -208,37 +206,37 @@ margin-top: 1em;
   backface-visibility: hidden;
 }
 .card__back {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
   color: white;
   background: black;
   transform: rotateY(180deg);
 }
 
 .card__back img {
-	margin: 0 auto;
-	width: 50%;
+  margin: 0 auto;
+  width: 50%;
 }
 
 .cardScore {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	align-self: center;
-	margin-top: auto;
- 	margin-bottom: 20px;
-	height: 100px;
-	width: 75%;
-	background-color:hsl(100, 100%, 700%)
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-self: center;
+  margin-top: auto;
+  margin-bottom: 20px;
+  height: 100px;
+  width: 75%;
+  background-color: hsl(100, 100%, 700%);
 }
 
 .positiveScore,
 .negativeScore {
-	text-align: center;
-	font-size: 4em;
-	width: 30%;
-	height: 90%;
-	background-color: grey;
+  text-align: center;
+  font-size: 4em;
+  width: 30%;
+  height: 90%;
+  background-color: grey;
 }
 
 .card:hover,
@@ -254,13 +252,17 @@ margin-top: 1em;
 /* Media Queries */
 /*---------------*/
 
-@media (min-width:400px){
-.card__list-item {
-	width: 400px;
-	height: 600px;
-	margin: 2rem 2rem;
-	perspective: 1000px;
+@media (min-width: 400px) {
+  .card__list-item {
+    width: 400px;
+    height: 600px;
+    margin: 2rem 2rem;
+    perspective: 1000px;
+  }
 }
+@media (max-width: 700px) {
+  .select__list {
+    flex-wrap: wrap;
+  }
 }
-
 /*<a href="https://www.freepik.com/vectors/right-wrong">Right wrong vector created by starline - www.freepik.com</a>*/
