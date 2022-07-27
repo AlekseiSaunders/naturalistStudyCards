@@ -2,17 +2,15 @@ import stopScroll from './onscroll.js';
 import getSpecies from './getSpecies.js';
 
 const cardArea = document.getElementById('allCards');
-const cardFronts = document.getElementsByClassName('card__front');
-const cardBacks = document.getElementsByClassName('card__back');
 const generateBtn = document.getElementById('btn');
-const taxaSelect = document.getElementById('taxa-select');
-const areaSelect = document.getElementById('area-select');
-const numberToStudy = document.getElementById('number-select');
 const currentScoreBoard = document.getElementById('currentScoreBoard');
 const runningScoreBoard = document.getElementById('runningScoreBoard');
-let taxa = '';
-let area = '';
-let numberOfCards = '';
+const taxaRadios = document.querySelectorAll('input[type=radio][name="taxon"]');
+const areaRadios = document.querySelectorAll('input[type=radio][name="area"]');
+const numberRadios = document.querySelectorAll(
+  'input[type=radio][name="number"]'
+);
+let taxa, area, numberOfCards;
 let maxCards = 0;
 let currentScore = 0;
 
@@ -24,22 +22,42 @@ if (!runningScore) {
 runningScoreBoard.textContent = `All Time Score: ${runningScore}`;
 
 // Event Listeners for select field and button
-taxaSelect.addEventListener('change', () => {
-  return (taxa = `&taxon_id=${taxaSelect.value}`);
-});
-areaSelect.addEventListener('change', () => {
-  return (area = `&place_id=${areaSelect.value}`);
-});
-numberToStudy.addEventListener('change', () => {
-  numberOfCards = numberToStudy.value;
-});
+// taxaSelect.addEventListener('change', () => {
+//   return (taxa = `&taxon_id=${taxaSelect.value}`);
+// });
+taxaRadios.forEach((taxaBtn) =>
+  taxaBtn.addEventListener('change', () => {
+    return (taxa = `&taxon_id=${taxaBtn.value}`);
+  })
+);
+// areaSelect.addEventListener('change', () => {
+//   return (area = `&place_id=${areaSelect.value}`);
+// });
+areaRadios.forEach((areaBtn) =>
+  areaBtn.addEventListener('change', () => {
+    return (area = `&place_id=${areaBtn.value}`);
+  })
+);
+// numberToStudy.addEventListener('change', () => {
+//   numberOfCards = numberToStudy.value;
+// });
+numberRadios.forEach((numberBtn) =>
+  numberBtn.addEventListener('change', () => {
+    return (numberOfCards = numberBtn.value);
+  })
+);
+
 generateBtn.addEventListener('click', async () => {
   cardArea.innerHTML = '';
   let species = await getSpecies(urlBase + area + taxa + urlEnd);
   maxCards = species.length;
   if (maxCards < numberOfCards) {
-    alert('Sorry, not enough cards to study. The page will reset.');
-    location.reload();
+    cardArea.innerHTML = `
+      <h1 style="text-align:center">
+        Sorry, not enough cards to display. The page will now reload
+      </h1>
+    `;
+    window.setTimeout(() => location.reload(), 3000);
   } else {
     createCard(species);
   }
