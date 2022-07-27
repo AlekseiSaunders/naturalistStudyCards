@@ -19,55 +19,47 @@
 
 <body class="wrapper">
 	<header id="siteNav">
-		<a href="#" class="site-logo" aria-label="homepage">
-			Study to be a Naturalist
-		</a>
-		<nav class="header-nav">
-			<ul class="nav__list">
-				<li class="nav__list-item"><a href="#" class="nav__link">About</a></li>
-				<li class="nav__list-item"><a href="#" class="nav__link">Contact</a></li>
-			</ul>
-		</nav>
+		<h1>
+			Naturalist Study Cards
+		</h1>
 	</header>
 	<main>
 		<section class="home-intro">
 			<div class="selects">
-				<div class="select__list">
-					<label for="taxa-select">Choose a Taxon to study:</label>
-					<select name="taxon" id="taxa-select">
-						<option value="">--Please select a taxon--</option>
-						<option value="40151">Mammals</option>
-						<option value="3">Birds</option>
-						<option value="20978">Amphibians</option>
-						<option value="26036">Reptiles</option>
-						<option value="47178">Ray-finned Fishes</option>
-						<option value="47158">Insects</option>
-						<option value="47118">Arachnids</option>
-						<option value="47126">Plants</option>
-					</select>
-				</div>
-				<div class="select__list">
-					<label for="area-select">Choose an area from which to study:</label>
-					<select name="area" id="area-select">
-						<option value="">--Please select an area--</option>
-						<option value="34">Colorado</option>
-						<option value="52">Utah</option>
-						<option value="9">New Mexico</option>
-						<option value="18">Texas</option>
-						<option value="20">Indiana</option>
-						<option value="7783">Madagascar</option>
-					</select>
-				</div>
-				<div class="select__list">
-					<label for="number-select">Choose the number of cards to study:</label>
-					<select name="number" id="number-select">
-						<option value="">--Please select a number--</option>
-						<option value="5">5</option>
-						<option value="10">10</option>
-						<option value="15">15</option>
-						<option value="20">20</option>
-					</select>
-				</div>
+				<fieldset class="select__list">
+					<legend>Choose a taxon to study:</legend>
+					<div><input type="radio" name="taxon" id="mammals" value="40151"><label for="mammals">Mammals</label></div>
+					<div><input type="radio" name="taxon" id="birds" value="3"><label for="birds">Birds</label></div>
+					<div><input type="radio" name="taxon" id="amphibians" value="20978"><label for="amphibians">Amphibians</label>
+					</div>
+					<div><input type="radio" name="taxon" id="reptiles" value="26036"><label for="reptiles">Reptiles</label>
+					</div>
+					<div><input type="radio" name="taxon" id="rayfinnedFishes" value="47178"><label
+							for="rayfinnedFishes">Ray-finned Fishes</label></div>
+					<div><input type="radio" name="taxon" id="insects" value="47158"><label for="insects">Insects</label></div>
+					<div><input type="radio" name="taxon" id="arachnids" value="47118"><label for="arachnids">Arachnids</label>
+					</div>
+					<div><input type="radio" name="taxon" id="plants" value="47126"><label for="plants">Plants</label></div>
+				</fieldset>
+				<fieldset class="select__list">
+					<legend>Choose an area from which to study:</legend>
+					<div><input type="radio" name="area" id="colorado" value="34"><label for="colorado">Colorado</label></div>
+					<div><input type="radio" name="area" id="utah" value="52"><label for="utah">Utah</label></div>
+					<div><input type="radio" name="area" id="newMexico" value="9"><label for="newMexico">New Mexico</label></div>
+					<div><input type="radio" name="area" id="texas" value="18"><label for="texas">Texas</label></div>
+					<div><input type="radio" name="area" id="indiana" value="20"><label for="indiana">Indiana</label></div>
+					<div><input type="radio" name="area" id="madagascar" value="7783"><label for="madagascar">Madagascar</label>
+					</div>
+					<div><input type="radio" name="area" id="britishColumbia" value="7085"><label for="britishColumbia">British
+							Columbia</label></div>
+				</fieldset>
+				<fieldset class="select__list">
+					<legend>Choose the number of cards to study:</legend>
+					<div><input type="radio" name="number" id="five" value="5"><label for="five">Five</label></div>
+					<div><input type="radio" name="number" id="ten" value="10"><label for="ten">Ten</label></div>
+					<div><input type="radio" name="number" id="fifteen" value="15"><label for="fifteen">Fifteen</label></div>
+					<div><input type="radio" name="number" id="twenty" value="20"><label for="twenty">Twenty</label></div>
+				</fieldset>
 			</div>
 			<div>
 				<a href="#" class="btn-like" id="btn">
@@ -83,27 +75,11 @@
 		</section>
 
 		<section class="card__list" id='allCards'>
-			<!-- <article class="card__list-item">
-					<div class="card">
-						<div class="card__front"></div>
-						<div class="card__back"></div>
-					</div>
-				</article>
-				<article class="card__list-item">
-					<div class="card">
-						<div class="card__front"></div>
-						<div class="card__back"></div>
-					</div>
-				</article> -->
 		</section>
 	</main>
 	<footer>
 		<nav class="footer-nav">
 			<ul class="nav__list">
-				<li class="nav__list-item"><a href="#" class="nav__link">Contact</a>
-				</li>
-				<li class="nav__list-item"><a href="#" class="nav__link">Copyright</a></li>
-				<li class="nav__list-item"><a href="#" class="nav__link">Something Else</a></li>
 			</ul>
 		</nav>
 	</footer>
